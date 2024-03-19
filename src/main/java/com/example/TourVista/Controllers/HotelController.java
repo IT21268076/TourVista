@@ -1,10 +1,17 @@
 package com.example.TourVista.Controllers;
 
+import com.example.TourVista.DTOs.HotelDTO;
+import com.example.TourVista.DTOs.HotelSearchDTO;
+import com.example.TourVista.Models.Contract;
 import com.example.TourVista.Models.Hotel;
 import com.example.TourVista.Services.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -22,9 +29,30 @@ public class HotelController {
         return hotelService.getHotels();
     }
 
+    @GetMapping("/{hotelId}")
+    public ResponseEntity<Hotel> getHotelById(@PathVariable Long hotelId) {
+        Hotel hotel = hotelService.getHotelById(hotelId);
+        if (hotel != null) {
+            return new ResponseEntity<>(hotel, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping(path = "/search")
+    public List<HotelSearchDTO> searchHotels(
+            @RequestParam("checkInDate")
+            @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkInDate,
+
+            @RequestParam("checkOutDate")
+            @DateTimeFormat(pattern = "yyyy-MM-dd") Date checkOutDate,
+
+            @RequestParam String location
+            ){ return hotelService.searchHotels(checkInDate, checkOutDate, location);}
+
     @PostMapping
-    public void createHotel(@RequestBody Hotel hotel){
-        hotelService.addNewHotel(hotel);
+    public void createHotel(@RequestBody HotelDTO hotelDTO){
+        hotelService.addNewHotel(hotelDTO);
     }
 
     @PutMapping(path = "{hotelId}")

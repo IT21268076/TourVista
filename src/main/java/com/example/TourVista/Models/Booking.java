@@ -25,24 +25,27 @@ public class Booking {
         private Date checkOutDate;
         private Date dateOfBooking;
 
-        @ManyToOne
-        @JoinColumn(name="roomType_id")
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name="roomType_id", referencedColumnName = "roomTypeId")
         private RoomType roomType;
 
         @ManyToOne
         @JoinColumn(name="user_id")
         private User user;
 
-        @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinColumn(name = "booking_id", referencedColumnName = "bookingId")
         private Set<SaveDiscount> saveDiscounts;
 
-        @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+        @OneToMany(cascade = CascadeType.ALL)
+        @JoinColumn(name = "booking_id", referencedColumnName = "bookingId")
         private Set<SaveSupplements> saveSupplements;
 
-        @OneToOne(mappedBy = "booking")
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name = "saveroomtype_id")
         private SaveRoomType saveRoomType;
 
-        @OneToOne(mappedBy = "booking")
-        private Payment payment;
+//        @OneToOne(mappedBy = "booking")
+//        private Payment payment;
 
 }

@@ -18,8 +18,8 @@ public class Discount {
     private double amount;
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "contractId")
-    private Contract contract;
+//    @ManyToOne
+//    @JoinColumn(name = "contractId", referencedColumnName = "contractId")
+//    private Contract contract;
 
 }

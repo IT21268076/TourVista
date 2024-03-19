@@ -23,4 +23,10 @@ public class Hotel {
 
     @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
     private Set<Contract> contracts;
+
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
+    private Set<HotelImages> hotelImages;
+
+    public Hotel(Long hotelId, String oldName, String no, String street, String city, String email, String contactNo) {
+    }
 }

@@ -17,8 +17,8 @@ public class SaveSupplements {
     private String name;
     private double price;
 
-    @ManyToOne
-    @JoinColumn(name="booking_id")
-    private Booking booking;
+//    @ManyToOne
+//    @JoinColumn(name="booking_id")
+//    private Booking booking;
 
 }

@@ -29,17 +29,20 @@ public class Contract {
     @JoinColumn(name = "hotel_id")
     private Hotel hotel;
 
-    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
-    @JoinColumn(name = "contractId")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contractId", referencedColumnName = "contractId")
     private Set<Discount> discounts;
 
-    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contractId", referencedColumnName = "contractId")
     private Set<Supplements> supplements;
 
-    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contractId", referencedColumnName = "contractId")
     private Set<Season> seasons;
 
-    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contractId", referencedColumnName = "contractId")
     private Set<RoomType> roomTypes;
 
 

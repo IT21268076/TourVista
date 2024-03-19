@@ -16,8 +16,8 @@ public class SaveDiscount {
     private long discountId;
     private double amount;
 
-    @ManyToOne
-    @JoinColumn(name="booking_id")
-    private Booking booking;
+//    @ManyToOne
+//    @JoinColumn(name="booking_id", referencedColumnName = "bookingId")
+//    private Booking booking;
 }
 

@@ -1,5 +1,6 @@
-package com.example.TourVista.Models;
+package com.example.TourVista.DTOs;
 
+import com.example.TourVista.Models.Hotel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,15 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
-@Table
-public class HotelImages {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class HotelImageDTO {
+
     private Long imageId;
     private String imageUrl;
 
-    @ManyToOne
-    @JoinColumn(name = "hotel_id")
-    private Hotel hotel;
+    private Long hotelId;
 }

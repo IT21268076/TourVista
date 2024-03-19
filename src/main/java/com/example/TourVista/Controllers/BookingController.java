@@ -1,5 +1,6 @@
 package com.example.TourVista.Controllers;
 
+import com.example.TourVista.DTOs.BookingDTO;
 import com.example.TourVista.Models.Booking;
 import com.example.TourVista.Services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,9 @@ public class BookingController {
     }
 
     @PostMapping
-    public void addNewBooking(Booking booking){
-        bookingService.addNewBooking(booking);
+    public void addNewBooking(@RequestParam("roomTypeId") Long roomTypeId,
+                              @RequestParam("seasonId") Long seasonId, @RequestBody BookingDTO bookingDTO){
+        bookingService.addNewBooking(roomTypeId, seasonId, bookingDTO);
     }
 
     @PutMapping(path="{bookingId}")

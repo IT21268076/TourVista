@@ -23,9 +23,9 @@ public class RoomType {
     private RoomAvailability availability;
     private int maxNoOfGuests;
 
-    @ManyToOne
-    @JoinColumn(name = "contractId")
-    private Contract contract;
+//    @ManyToOne
+//    @JoinColumn(name = "contractId")
+//    private Contract contract;
 
 //    @OneToMany(mappedBy = "roomType")
 //    Set<RoomSeasonPrice> prices;
@@ -33,14 +33,17 @@ public class RoomType {
 //    @OneToMany(mappedBy = "roomType")
 //    Set<RoomSeasonPrice> roomCount;
 
+    @OneToOne(mappedBy = "roomType")
+    private Booking booking;
+
+
     @OneToMany(mappedBy = "roomType", cascade = CascadeType.ALL)
-    private Set<Booking> bookings;
-
-    @OneToMany(mappedBy = "roomType")
     Set<RoomSeasonPrice> roomSeasonPrices = new HashSet<>();
-
 
     public RoomType(String type) {
         this.type = type;
+    }
+
+    public RoomType(RoomType roomType) {
     }
 }

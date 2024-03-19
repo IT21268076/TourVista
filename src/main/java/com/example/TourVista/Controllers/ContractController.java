@@ -12,6 +12,7 @@ import java.util.List;
 @RequestMapping(path = "api/contract")
 public class ContractController {
 
+    @Autowired
     private final ContractService contractService;
 
     @Autowired

@@ -1,5 +1,7 @@
 package com.example.TourVista.DTOs;
 
+import com.example.TourVista.Models.Discount;
+import com.example.TourVista.Models.Hotel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,9 +19,9 @@ public class ContractDTO {
     private double cancellationFee;
     private int noOfBalancePaymentDates;
     private int noOfDatesOfCancellation;
-    private Long hotelId;
-    private Set<Long> discountIds;
-    private Set<Long> supplementIds;
-    private Set<Long> seasonIds;
-    private Set<Long> roomTypeIds;
+    private Hotel hotel;
+    private Set<DiscountDTO> discounts;
+    private Set<SupplementsDTO> supplements;
+    private Set<SeasonDTO> seasons;
+    private Set<RoomTypeDTO> roomTypes;
 }

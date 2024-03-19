@@ -17,8 +17,10 @@ public class SaveRoomType {
     private String type;
     private double price;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "booking_id", referencedColumnName = "bookingId")
+    @OneToOne(mappedBy = "saveRoomType")
     private Booking booking;
 
+
+    public SaveRoomType(SaveRoomType saveRoomTypeId) {
+    }
 }

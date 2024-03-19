@@ -1,5 +1,6 @@
 package com.example.TourVista.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,9 +25,9 @@ public class Season {
     private Date endDate;
     private double markUpPercentage;
 
-    @ManyToOne
-    @JoinColumn(name = "contractId")
-    private Contract contract;
+//    @ManyToOne
+//    @JoinColumn(name = "contractId")
+//    private Contract contract;
 
     @ManyToMany
     @JoinTable(
@@ -41,6 +42,7 @@ public class Season {
 //    @OneToMany(mappedBy = "season")
 //    Set<RoomSeasonPrice> roomCount;
 
-    @OneToMany(mappedBy = "season")
+    @OneToMany(mappedBy = "season", cascade = CascadeType.ALL)
+    @JsonIgnore
     Set<RoomSeasonPrice> roomSeasonPrices = new HashSet<>();
 }

@@ -1,5 +1,6 @@
 package com.example.TourVista.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,11 +14,12 @@ import lombok.NoArgsConstructor;
 public class RoomSeasonPrice {
 
     @EmbeddedId
-    private RoomSeasonPriceKey id;
+    private RoomSeasonPriceKey id = new RoomSeasonPriceKey();
 
     @ManyToOne
     @MapsId("seasonId")
     @JoinColumn(name = "season_id")
+    @JsonIgnore
     private Season season;
 
     @ManyToOne

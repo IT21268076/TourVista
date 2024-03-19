@@ -13,6 +13,6 @@ public class SupplementsDTO {
     private String name;
     private double price;
     private String description;
-    private Long contractId;
-    private Set<Long> seasonIds;
+//    private Long contractId;
+    private Set<SeasonDTO> seasons;
 }

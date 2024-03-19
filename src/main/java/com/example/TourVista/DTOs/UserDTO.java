@@ -17,5 +17,5 @@ public class UserDTO {
     private String password;
     private String mobileNo;
     private UserRole role;
-    private Set<Long> bookingIds;
+    private Set<BookingDTO> bookings;
 }

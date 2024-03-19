@@ -1,5 +1,6 @@
 package com.example.TourVista.DTOs;
 
+import com.example.TourVista.Models.*;
 import com.example.TourVista.Utils.BookingStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,10 +18,10 @@ public class BookingDTO {
     private Date checkInDate;
     private Date checkOutDate;
     private Date dateOfBooking;
-    private Long roomTypeId;
+    private RoomType roomType;
     private Long userId;
-    private Set<Long> saveDiscountIds;
-    private Set<Long> saveSupplementIds;
-    private Long saveRoomTypeId;
-    private Long paymentId;
+    private Set<SaveDiscount> saveDiscounts;
+    private Set<SaveSupplements> saveSupplements;
+    private SaveRoomType saveRoomType;
+    private Payment payment;
 }

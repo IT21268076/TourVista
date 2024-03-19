@@ -20,9 +20,9 @@ public class Supplements {
     private double price;
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "contractId")
-    private Contract contract;
+//    @ManyToOne
+//    @JoinColumn(name = "contractId")
+//    private Contract contract;
 
     @ManyToMany(mappedBy = "supplementsSet")
     Set<Season> seasonSet;

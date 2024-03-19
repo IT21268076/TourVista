@@ -16,5 +16,7 @@ public class HotelDTO {
     private String city;
     private String email;
     private String contactNo;
-    private Set<Long> contractIds;
+    private Set<ContractDTO> contracts;
+    private Set<HotelImageDTO> hotelImages;
+
 }
